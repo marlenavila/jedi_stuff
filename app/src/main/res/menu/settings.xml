@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menusettings"
+        android:icon="@drawable/ic_settings_box_black_36dp"
+        android:title="Settings"
+        app:showAsAction="ifRoom" />
+
+
+    <item
+        android:id="@+id/submenu"
+        android:title="Submenu">
+
+        <menu>
+            <item
+                android:id="@+id/menusubmenu1"
+                android:title="Submenu1" />
+        </menu>
+    </item>
+
+
+</menu>

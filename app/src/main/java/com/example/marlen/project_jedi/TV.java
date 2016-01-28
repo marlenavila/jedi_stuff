@@ -1,8 +1,12 @@
 package com.example.marlen.project_jedi;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,12 +16,37 @@ public class TV extends AppCompatActivity implements View.OnClickListener {
     TextView resultat;
     Button bt0, bt1, bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9, btsum, btrest, btmult, btdiv;
     Button btdec, btig;
-    String s;
+    String s, op;
+    Double num1, num2, res;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.settings, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menusettings:
+                Intent intent = new Intent(getApplicationContext(), Activity2.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tv);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         resultat = (TextView)findViewById(R.id.result);
         bt0 = (Button) findViewById(R.id.b_0);
@@ -66,7 +95,7 @@ public class TV extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-
+        s = (String)resultat.getText();
         switch (v.getId()){
             case R.id.b_0:
                 s += "0";
@@ -109,18 +138,26 @@ public class TV extends AppCompatActivity implements View.OnClickListener {
                 resultat.setText(s);
                 break;
             case R.id.b_sum:
+                op = "+";
+                num1 = Double.parseDouble((String)resultat.getText());
                 s += "+";
                 resultat.setText(s);
                 break;
             case R.id.b_rest:
+                op = "-";
+                num1 = Double.parseDouble((String)resultat.getText());
                 s += "-";
                 resultat.setText(s);
                 break;
             case R.id.b_mult:
+                op = "x";
+                num1 = Double.parseDouble((String)resultat.getText());
                 s += "x";
                 resultat.setText(s);
                 break;
             case R.id.b_div:
+                op = "/";
+                num1 = Double.parseDouble((String)resultat.getText());
                 s += "/";
                 resultat.setText(s);
                 break;
@@ -130,6 +167,19 @@ public class TV extends AppCompatActivity implements View.OnClickListener {
                 break;
             case R.id.b_igual:
                 s += "=";
+                num2 = Double.parseDouble((String)resultat.getText());
+                if(op.equals("+")){
+                    res = num1+num2;
+                }
+                else if(op.equals("-")){
+                    res = num1-num2;
+                }
+                else if(op.equals("x")){
+                    res = num1*num2;
+                }
+                else{
+                    res = num1/num2;
+                }
                 resultat.setText(s);
                 break;
 
