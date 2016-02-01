@@ -15,19 +15,26 @@
         <activity android:name=".Activity3" />
         <activity android:name=".proves_layout" />
         <activity android:name=".TV" />
-        <activity android:name=".activity_provesIntent1">
+        <activity android:name=".activity_provesIntent1" />
+        <activity android:name=".activity_provesIntent2" />
+        <!--
+             ATTENTION: This was auto-generated to add Google Play services to your project for
+             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity android:name=".activityLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity_provesIntent2"></activity>
-        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
+        <activity android:name=".DbHelper" />
+        <activity android:name=".myCustomAdapter" />
+        <activity android:name=".Ranking_recyclerView"></activity>
     </application>
 
 </manifest>

@@ -74,7 +74,7 @@ public class activity_provesIntent1 extends AppCompatActivity implements View.On
         }
     }
 
-    @Override
+ /*   @Override
     public void onStart() {
         super.onStart();
 
@@ -112,5 +112,5 @@ public class activity_provesIntent1 extends AppCompatActivity implements View.On
         );
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();
-    }
+    }*/
 }

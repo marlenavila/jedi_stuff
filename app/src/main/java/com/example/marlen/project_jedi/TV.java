@@ -140,33 +140,32 @@ public class TV extends AppCompatActivity implements View.OnClickListener {
             case R.id.b_sum:
                 op = "+";
                 num1 = Double.parseDouble((String)resultat.getText());
-                s += "+";
-                resultat.setText(s);
+                resultat.setText("");
+                resultat.setHint(num1.toString());
                 break;
             case R.id.b_rest:
                 op = "-";
                 num1 = Double.parseDouble((String)resultat.getText());
-                s += "-";
-                resultat.setText(s);
+                resultat.setText("");
+                resultat.setHint(num1.toString());
                 break;
             case R.id.b_mult:
                 op = "x";
                 num1 = Double.parseDouble((String)resultat.getText());
-                s += "x";
-                resultat.setText(s);
+                resultat.setText("");
+                resultat.setHint(num1.toString());
                 break;
             case R.id.b_div:
                 op = "/";
                 num1 = Double.parseDouble((String)resultat.getText());
-                s += "/";
-                resultat.setText(s);
+                resultat.setText("");
+                resultat.setHint(num1.toString());
                 break;
             case R.id.b_dec:
                 s += ".";
                 resultat.setText(s);
                 break;
             case R.id.b_igual:
-                s += "=";
                 num2 = Double.parseDouble((String)resultat.getText());
                 if(op.equals("+")){
                     res = num1+num2;
@@ -178,9 +177,14 @@ public class TV extends AppCompatActivity implements View.OnClickListener {
                     res = num1*num2;
                 }
                 else{
-                    res = num1/num2;
+                    if(num2.equals(0)){
+                        res = 0.0;
+                    }
+                    else
+                        res = num1/num2;
                 }
-                resultat.setText(s);
+                resultat.setText("");
+                resultat.setHint(res.toString());
                 break;
 
         }
